@@ -6,7 +6,7 @@ class ThemeHelper {
 
   static Color primaryColor = const Color(0xFF47bab3);
   static Color secondaryColor = Colors.white;
-  static Color blackColor = const Color(0xFF263238);
+  static Color blackColor = const Color(0xFF00053d);
 
   static TextStyle mediumTextStyle = GoogleFonts.poppins(
     fontSize: 16,
