@@ -11,12 +11,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool obsecureText = true;
-  bool isLoading = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool obsecureText = true;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -109,21 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: MediaQuery.of(context).size.width,
                     height: 44,
                     child: ElevatedButton(
-                      onPressed: () {
-                        final formIsValid = _formKey.currentState?.validate();
-                        if (formIsValid!) {
-                          setState(() {
-                            isLoading = true;
-                          });
-                          Future.delayed(Duration(seconds: 3), () {
-                            setState(() {
-                              isLoading = false;
-                            });
-                          });
-                          return;
-                        } else {
-                          return;
-                        }
+                      onPressed: () async {
+                        await doLogin();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: ThemeHelper.primaryColor,
@@ -146,5 +132,19 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> doLogin() async {
+    final formIsValid = _formKey.currentState?.validate();
+    if (formIsValid!) {
+      setState(() {
+        isLoading = true;
+      });
+      Future.delayed(const Duration(seconds: 3), () {
+        setState(() {
+          isLoading = false;
+        });
+      });
+    }
   }
 }
