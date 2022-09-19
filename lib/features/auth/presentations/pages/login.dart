@@ -12,8 +12,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool obsecureText = true;
-  bool usernameIsEmpty = false;
-  bool passwordIsEmpty = false;
   bool isLoading = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -32,11 +30,13 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: const EdgeInsets.all(32),
           child: Form(
             key: _formKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  /// Gambar
                   Container(
                     margin: EdgeInsets.only(
                         top: MediaQuery.of(context).size.height * 0.15),
@@ -46,19 +46,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 80,
                     ),
                   ),
+
+                  /// Text Welcome
                   Text(
                     'Welcome Back',
                     style: ThemeHelper.mediumTextStyle.copyWith(
                       fontWeight: FontWeight.w500,
                     ),
                   ),
+
+                  /// Username Input
                   Container(
                     margin: const EdgeInsets.only(bottom: 20, top: 20),
                     child: TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       textInputAction: TextInputAction.next,
                       validator: (value) =>
-                          value!.isEmpty ? 'Email cannot be blank' : null,
+                          value!.isEmpty ? 'Username cannot be blank' : null,
                       controller: usernameController,
                       decoration: const InputDecoration(
                         border: UnderlineInputBorder(),
@@ -67,6 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
+
+                  /// Password Input
                   Container(
                     margin: const EdgeInsets.only(bottom: 20),
                     child: TextFormField(
@@ -97,6 +103,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
+
+                  /// Tombol Simpan
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 44,
