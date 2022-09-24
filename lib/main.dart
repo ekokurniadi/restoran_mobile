@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:restoran_mobile/features/splash_screen/splash_screen.dart';
+import 'package:restoran_mobile/initializer.dart';
 
-void main() {
+Future<void> main() async {
+  await Initializer().init();
   runApp(const MyApp());
 }
 
