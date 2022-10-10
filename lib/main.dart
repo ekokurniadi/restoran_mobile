@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:restoran_mobile/features/auth/presentations/bloc/login_bloc.dart';
+import 'package:restoran_mobile/features/cashier/presentations/bloc/cashier_bloc.dart';
 import 'package:restoran_mobile/features/splash_screen/splash_screen.dart';
 import 'package:restoran_mobile/initializer.dart';
 
@@ -18,7 +22,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const SplashScreen(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => CashierBloc(),
+          ),
+          BlocProvider(
+            create: (_) => LoginBloc(),
+          ),
+        ],
+        child: const SplashScreen(),
+      ),
     );
   }
 }
