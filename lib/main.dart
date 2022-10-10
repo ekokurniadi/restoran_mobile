@@ -3,6 +3,7 @@ import 'package:restoran_mobile/features/splash_screen/splash_screen.dart';
 import 'package:restoran_mobile/initializer.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Initializer().init();
   runApp(const MyApp());
 }
