@@ -7,8 +7,8 @@ class CashierPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("ini daftar product"),
+      body: const Center(
+        child: Text('ini daftar product'),
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.only(top: 10),
@@ -25,7 +25,7 @@ class CashierPage extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.widgets_outlined,
                         color: Colors.grey,
                       ),
@@ -38,7 +38,7 @@ class CashierPage extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.save,
                         color: Colors.grey,
                       ),
@@ -51,7 +51,7 @@ class CashierPage extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.shopping_basket_rounded,
                         color: Colors.grey,
                       ),
@@ -64,7 +64,7 @@ class CashierPage extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.delete,
                         color: Colors.grey,
                       ),
@@ -102,7 +102,7 @@ class CashierPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white),
                       onPressed: () {
-                        print("test");
+                        print('test');
                       },
                       child: Text(
                         'Bayar',

@@ -79,13 +79,13 @@ class HomeScreen extends StatelessWidget {
               const CashierPage(),
               Container(
                 color: Colors.blue,
-                child: Center(
+                child: const Center(
                   child: Text('Laporan'),
                 ),
               ),
               Container(
                 color: Colors.green,
-                child: Center(
+                child: const Center(
                   child: Text('Pengaturan'),
                 ),
               ),
