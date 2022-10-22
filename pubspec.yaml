@@ -31,6 +31,7 @@ environment:
 # ctrl + shift + p
 dependencies:
   build_runner: ^2.3.0
+  cached_network_image: ^3.2.2
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   dio: ^4.0.6
@@ -47,6 +48,7 @@ dependencies:
   json_serializable: ^6.5.1
   modal_progress_hud_nsn: ^0.3.0
   shared_preferences: ^2.0.15
+  zoom_tap_animation: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

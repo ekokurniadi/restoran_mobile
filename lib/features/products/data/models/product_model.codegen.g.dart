@@ -12,6 +12,7 @@ _$_ProductModel _$$_ProductModelFromJson(Map<String, dynamic> json) =>
     _$_ProductModel(
       id: json['id'] as int,
       productCode: json['product_code'] as String,
+      productName: json['product_name'] as String,
       categoryId: json['category_id'] as int,
       categoryName: json['category_name'] as String,
       productImage: json['product_image'] as String,
@@ -25,6 +26,7 @@ Map<String, dynamic> _$$_ProductModelToJson(_$_ProductModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'product_code': instance.productCode,
+      'product_name': instance.productName,
       'category_id': instance.categoryId,
       'category_name': instance.categoryName,
       'product_image': instance.productImage,

@@ -21,20 +21,23 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         'user_name': event.userName,
         'password': event.password,
       });
-        final sharedPreferences = Initializer.sharedPreferences;
+      final sharedPreferences = Initializer.sharedPreferences;
+
       /// INFO : MENYIMPAN DATA SESSION USER YANG LOGIN KE LOCAL HP(Emulator/device)
-      await sharedPreferences
-          .setInt('id', response.data['data']['id']);
+      await sharedPreferences.setInt('id', response.data['data']['id']);
       await sharedPreferences.setString(
-            'nama',
-            response.data['data']['first_name'] + ' ' + 
-                response.data['data']['last_name'],
-          );
+        'nama',
+        response.data['data']['first_name'] +
+            ' ' +
+            response.data['data']['last_name'],
+      );
       await sharedPreferences.setString(
-            'profile_picture',
-            response.data['data']['profile_picture'],
-          );
-      await sharedPreferences.setString('token',response.data['token']);
+        'profile_picture',
+        response.data['data']['profile_picture'],
+      );
+      await sharedPreferences.setString('token', response.data['token']);
+
+      DioHelper.setDioHeader(response.data['token']);
 
       emit(state.copyWith(
         status: LoginStatus.success,

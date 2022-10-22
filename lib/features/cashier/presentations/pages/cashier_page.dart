@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restoran_mobile/core/helpers/theme_helper.dart';
+import 'package:restoran_mobile/features/products/presentations/pages/products_page.dart';
 
 class CashierPage extends StatelessWidget {
   const CashierPage({super.key});
@@ -7,9 +8,7 @@ class CashierPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-        child: Text('ini daftar product'),
-      ),
+      body: const ProductPage(),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.only(top: 10),
         decoration: const BoxDecoration(

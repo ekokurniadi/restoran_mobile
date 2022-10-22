@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:restoran_mobile/core/helpers/theme_helper.dart';
 import 'package:restoran_mobile/features/auth/presentations/pages/login.dart';
+import 'package:restoran_mobile/features/home/presentations/pages/home_screen.dart';
+import 'package:restoran_mobile/initializer.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,10 +19,19 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> checkSessionUser() async {
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const LoginScreen()));
-    });
+    final idUser = Initializer.sharedPreferences.getInt('id');
+   
+    if (idUser == null) {
+      Future.delayed(const Duration(seconds: 3), () {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const LoginScreen()));
+      });
+    } else {
+      Future.delayed(const Duration(seconds: 3), () {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
+      });
+    }
   }
 
   @override
